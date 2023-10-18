@@ -24,8 +24,8 @@ $(document).ready(function () {
                 dataType: 'json',
                 contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                 success: function (data) {
-                    // Aquí, asumimos que `data` es un array de candidatos
-                    // Debes adaptar este código según el formato de tu respuesta JSON
+            
+                    
                     var options = '';
                     $.each(data, function (index, candidato) {
                         options += '<option value="' + candidato.id + '">' + candidato.nombre_apellido + '</option>';
