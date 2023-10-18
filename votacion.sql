@@ -9,8 +9,9 @@ USE votacion;
 -- Crear la tabla de regiones
 CREATE TABLE regiones (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(255) NOT NULL
+    nombre VARCHAR(255) NOT NULL UNIQUE
 );
+
 
 CREATE TABLE votos (
     id INT PRIMARY KEY AUTO_INCREMENT,

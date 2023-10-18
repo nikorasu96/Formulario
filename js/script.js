@@ -3,13 +3,17 @@ $(document).ready(function () {
         var region_id = $(this).val();
         if (region_id != '') {
             $.ajax({
-                url: 'get_comunas.php',
+                url: 'get_comunas.php', // Nombre del archivo PHP que manejará la solicitud
                 type: 'POST',
                 data: { region_id: region_id },
                 dataType: 'json',
-                contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
                 success: function (data) {
-                    $('#comuna').html(data);
+                    // Rellenar el campo de selección de comunas con las opciones obtenidas
+                    var options = '';
+                    $.each(data, function (index, comuna) {
+                        options += '<option value="' + comuna.id + '">' + comuna.nombre + '</option>';
+                    });
+                    $('#comuna').html(options);
                 }
             });
 
