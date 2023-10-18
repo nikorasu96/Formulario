@@ -22,7 +22,7 @@ CREATE TABLE votos (
     comuna_id INT NOT NULL,
     candidato_id INT NOT NULL,
     como_se_entero VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL, -- Agregamos la columna 'email' aquí
+    email VARCHAR(255) NOT NULL, -- Agregamos la columna 'email' aquí.
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE KEY idx_rut (rut) -- Creamos el índice único en la columna 'rut'
 );
