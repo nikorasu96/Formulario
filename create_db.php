@@ -2,7 +2,7 @@
 $host = "localhost";
 $database ="votacion";
 $user = "root"; // Reemplaza con tu nombre de usuario de MySQL
-$password = "m4k98npo"; // Reemplaza con tu contraseña de MySQL
+$password = ""; // Reemplaza con tu contraseña de MySQL
 
 // Crear conexión
 $conn = new mysqli($host,$database, $user, $password);
