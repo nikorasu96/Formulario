@@ -31,8 +31,10 @@ CREATE TABLE comunas (
     id INT PRIMARY KEY AUTO_INCREMENT,
     nombre VARCHAR(255) NOT NULL,
     region_id INT NOT NULL,
-    FOREIGN KEY (region_id) REFERENCES regiones(id)
+    FOREIGN KEY (region_id) REFERENCES regiones(id),
+    UNIQUE (nombre, region_id)
 );
+
 
 -- Crear la tabla de candidatos
 CREATE TABLE candidatos (
@@ -95,7 +97,7 @@ INSERT INTO comunas (nombre, region_id) VALUES
 ('Copiapo', 4),
 ('Caldera', 4),
 ('Tierra Amarilla', 4),
-('Chañaral', 4),
+('Chanaral', 4),
 ('Diego de Almagro', 4),
 ('Vallenar', 4);
 
