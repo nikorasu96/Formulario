@@ -29,10 +29,76 @@ $comunas = $stmt_comunas->fetchAll();
     <link rel="stylesheet" href="css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/script.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('form').submit(function(event) {
+                var checkboxes = $("input[name='como_se_entero[]']:checked");
+                if (checkboxes.length < 2) {
+                    alert("Por favor, selecciona al menos dos opciones de cómo se enteró de nosotros.");
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+
+
+        div h1 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            height: 50vh;
+        }
+
+
+
+        label,
+        input,
+        select {
+
+            margin-bottom: 10px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            /* Alinea los elementos verticalmente */
+        }
+
+        input[type="checkbox"] {
+            margin: 0;
+        }
+
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+
 </head>
 
 <body>
-    <h1>Formulario de Votación</h1>
+    <div>
+        <h1 class="titulo">Formulario de Votación</h1>
+
+    </div>
+
     <form action="votacion.php" method="post">
         <label for="nombre_apellido">Nombre y Apellido:</label>
         <input type="text" id="nombre_apellido" name="nombre_apellido" required><br>
@@ -49,7 +115,7 @@ $comunas = $stmt_comunas->fetchAll();
         <label for="region">Región:</label>
         <select id="region" name="region" required>
             <option value="">Selecciona una Región</option>
-            <?php foreach ($regiones as $region): ?>
+            <?php foreach ($regiones as $region) : ?>
                 <option value="<?= $region['id'] ?>"><?= $region['nombre'] ?></option>
             <?php endforeach; ?>
         </select><br>
@@ -57,7 +123,7 @@ $comunas = $stmt_comunas->fetchAll();
         <label for="comuna">Comuna:</label>
         <select id="comuna" name="comuna" required>
             <option value="">Selecciona una Comuna</option>
-            <?php foreach ($comunas as $comuna): ?>
+            <?php foreach ($comunas as $comuna) : ?>
                 <option value="<?= $comuna['id'] ?>"><?= $comuna['nombre'] ?></option>
             <?php endforeach; ?>
         </select><br>
@@ -71,13 +137,19 @@ $comunas = $stmt_comunas->fetchAll();
         </select><br>
 
 
-        <label>¿Cómo se enteró de nosotros?</label><br>
-        <input type="checkbox" name="como_se_entero[]" value="web"> Web<br>
-        <input type="checkbox" name="como_se_entero[]" value="tv"> TV<br>
-        <input type="checkbox" name="como_se_entero[]" value="redes_sociales"> Redes Sociales<br>
-        <input type="checkbox" name="como_se_entero[]" value="amigos"> Amigos<br>
+        <div style="display: flex; align-items: center;">
+            <label>¿Cómo se enteró de nosotros?</label><br>
+            <div style="display: flex; gap: 10px;">
+                <input type="checkbox" name="como_se_entero[]" value="web" style="margin-left: 10px;"> Web
+                <input type="checkbox" name="como_se_entero[]" value="tv"> TV
+                <input type="checkbox" name="como_se_entero[]" value="redes_sociales"> Redes Sociales
+                <input type="checkbox" name="como_se_entero[]" value="amigos"> Amigos
+            </div>
+        </div>
+
 
         <input type="submit" value="Votar">
+
     </form>
 </body>
 
