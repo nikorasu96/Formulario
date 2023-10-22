@@ -40,57 +40,6 @@ $comunas = $stmt_comunas->fetchAll();
             });
         });
     </script>
-
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-
-
-
-        div h1 {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            height: 50vh;
-        }
-
-
-
-        label,
-        input,
-        select {
-
-            margin-bottom: 10px;
-        }
-
-        .checkbox-group {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-            /* Alinea los elementos verticalmente */
-        }
-
-        input[type="checkbox"] {
-            margin: 0;
-        }
-
-        input[type="submit"] {
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-    </style>
-
 </head>
 
 <body>
