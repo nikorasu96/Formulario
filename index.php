@@ -1,34 +1,32 @@
 <?php
 
-require "database.php";
+require "database.php"; // Incluye el archivo de conexión a la base de datos.
 
-$FORMULARIO_NICOLASENDRESS = $conn->query("SELECT * FROM votos");
-
+$FORMULARIO_NICOLASENDRESS = $conn->query("SELECT * FROM votos"); // Consulta para obtener todos los votos.
 
 // Consulta para cargar candidatos
-$stmt_candidatos = $conn->query("SELECT * FROM candidatos");
-$candidatos = $stmt_candidatos->fetchAll();
+$stmt_candidatos = $conn->query("SELECT * FROM candidatos"); // Consulta para obtener todos los candidatos.
+$candidatos = $stmt_candidatos->fetchAll(); // Obtiene todas las filas de resultados y las almacena en $candidatos.
 
 // Consulta para cargar regiones
-$stmt_regiones = $conn->query("SELECT * FROM regiones");
-$regiones = $stmt_regiones->fetchAll();
+$stmt_regiones = $conn->query("SELECT * FROM regiones"); // Consulta para obtener todas las regiones.
+$regiones = $stmt_regiones->fetchAll(); // Obtiene todas las filas de resultados y las almacena en $regiones.
 
 // Consulta para cargar comunas
-$stmt_comunas = $conn->query("SELECT * FROM comunas");
-$comunas = $stmt_comunas->fetchAll();
-
-
+$stmt_comunas = $conn->query("SELECT * FROM comunas"); // Consulta para obtener todas las comunas.
+$comunas = $stmt_comunas->fetchAll(); // Obtiene todas las filas de resultados y las almacena en $comunas.
 
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <title>Formulario de Votación</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="css/style.css"> <!-- Enlaza el archivo de estilos CSS -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Incluye la biblioteca jQuery -->
+    <script src="js/script.js"></script> <!-- Incluye el archivo de script JavaScript -->
     <script>
         $(document).ready(function() {
             $('form').submit(function(event) {
@@ -45,7 +43,6 @@ $comunas = $stmt_comunas->fetchAll();
 <body>
     <div>
         <h1 class="titulo">Formulario de Votación</h1>
-
     </div>
 
     <form action="votacion.php" method="post">
@@ -85,7 +82,6 @@ $comunas = $stmt_comunas->fetchAll();
             <?php endforeach; ?>
         </select><br>
 
-
         <div style="display: flex; align-items: center;">
             <label>¿Cómo se enteró de nosotros?</label><br>
             <div style="display: flex; gap: 10px;">
@@ -95,7 +91,6 @@ $comunas = $stmt_comunas->fetchAll();
                 <input type="checkbox" name="como_se_entero[]" value="amigos"> Amigos
             </div>
         </div>
-
 
         <input type="submit" value="Votar">
 
