@@ -24,7 +24,7 @@ $comunas = $stmt_comunas->fetchAll(); // Obtiene todas las filas de resultados y
 <head>
     <meta charset="UTF-8">
     <title>Formulario de Votación</title>
-    <link rel="stylesheet" href="css/style.css"> <!-- Enlaza el archivo de estilos CSS -->
+    <link rel="stylesheet" href="css/estilo.css"> <!-- Enlaza el archivo de estilos CSS -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Incluye la biblioteca jQuery -->
     <script src="js/script.js"></script> <!-- Incluye el archivo de script JavaScript -->
     <script>
