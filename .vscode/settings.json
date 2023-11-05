@@ -1,20 +1,30 @@
 {
-    "[php]":{
+    "[php]": {
         "editor.tabSize": 2
     },
-    "[html]":{
+    "[html]": {
         "editor.tabSize": 2
     },
-    "[javascript]":{
+    "[javascript]": {
         "editor.tabSize": 2
     },
     "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": [
+                    "variable.other.php",
+                    "variable.other.local.php",
+                    "variable.other.readwrite.php"
+                ],
+                "settings": {
+                    "foreground": "#2ecc71" // Cambia este valor al color que prefieras
+                }
+            }
+        ],
         "comments": "#ff00ff" // Cambia el color de los comentarios a rosa (ejemplo)
     },
-      
     "files.insertFinalNewline": true,
     "workbench.colorTheme": "Community Material Theme Darker High Contrast",
     "terminal.integrated.defaultProfile.windows": "Git Bash",
     "workbench.iconTheme": "material-icon-theme"
-    
 }
